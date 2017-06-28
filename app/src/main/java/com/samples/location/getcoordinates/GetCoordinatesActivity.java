@@ -34,8 +34,15 @@ public class GetCoordinatesActivity extends AppCompatActivity {
         }
     };
 
-    private void printLocation(Object o) {
-
+    private void printLocation(Location loc) {
+        if (loc != null)
+        {
+            text.setText("Longtitude:\t" + loc.getLongitude() +
+                    "\nLatitude:\t" + loc.getLatitude());
+        }
+        else {
+            text.setText("Location unavailable");
+        }
     }
 
     @Override
@@ -48,6 +55,8 @@ public class GetCoordinatesActivity extends AppCompatActivity {
 
         manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 
-
+        Location loc = manager.getLastKnownLocation(
+                LocationManager.GPS_PROVIDER);
+        printLocation(loc);
     }
 }
