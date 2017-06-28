@@ -1,5 +1,6 @@
 package com.samples.location.getcoordinates;
 
+import android.app.Activity;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -7,12 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class GetCoordinatesActivity extends AppCompatActivity {
+public class GetCoordinatesActivity extends Activity {
 
     private LocationManager manager;
     private TextView text;
 
-    LocationListener locationListener = new LocationListener() {
+    private LocationListener locationListener = new LocationListener() {
         @Override
         public void onLocationChanged(Location location) {
             printLocation(location);
